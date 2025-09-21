@@ -319,181 +319,28 @@
             from { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
             to { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
         }
+  
+          /* Título */
+        .title {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.5em;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: fadeInTitle 2s ease-out 6s forwards;
+            font-weight: bold;
+        }
 
-/* Título principal mejorado - letra esponjosa */
-.title {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 4em;
-    font-family: 'Fredoka One', 'Comic Sans MS', 'Chalkboard', cursive;
-    font-weight: 400;
-    color: #ffffff;
-    text-align: center;
-    opacity: 0;
-    animation: fadeInTitle 3s ease-out 6s forwards, gentleGlow 3s ease-in-out infinite 9s;
-    
-    /* Efectos de texto suaves */
-    background: linear-gradient(135deg, #ffffff, #ffb269, #ffd6c0, #ffffff);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    
-    /* Sombras esponjosas */
-    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4))
-            drop-shadow(0px 0px 15px rgba(255, 105, 180, 0.5))
-            drop-shadow(0px 0px 25px rgba(255, 192, 203, 0.3));
-    
-    /* Resplandor rosado que contrasta con verde */
-    text-shadow: 0 0 15px rgba(255, 173, 105, 0.6),
-                 0 0 25px rgba(255, 178, 105, 0.4),
-                 0 0 35px rgba(255, 224, 192, 0.2),
-                 3px 3px 0px rgba(255, 255, 255, 0.8);
-                 
-    /* Efecto esponjoso con múltiples sombras */
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
-}
+        @keyframes fadeInTitle {
+            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0px); }
+        }
 
-/* Animación de aparición suave */
-@keyframes fadeInTitle {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-30px) scale(0.8);
-        filter: blur(5px);
-    }
-    50% {
-        opacity: 0.7;
-        transform: translateX(-50%) translateY(-15px) scale(0.95);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0px) scale(1);
-        filter: blur(0px);
-    }
-}
-
-/* Efecto de brillo suave que se repite */
-@keyframes gentleGlow {
-    0%, 100% {
-        background-position: 0% 50%;
-        filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4))
-                drop-shadow(0px 0px 15px rgba(255, 153, 105, 0.5))
-                drop-shadow(0px 0px 25px rgba(255, 221, 192, 0.3));
-    }
-    50% {
-        background-position: 100% 50%;
-        filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4))
-                drop-shadow(0px 0px 20px rgba(255, 165, 105, 0.7))
-                drop-shadow(0px 0px 35px rgba(255, 192, 203, 0.5));
-    }
-}
-
-/* Decoración adicional - corazones rosados flotantes */
-.title::before,
-.title::after {
-    content: '';
-    position: absolute;
-    font-size: 0.4em;
-    animation: floatHearts 6s ease-in-out infinite;
-    opacity: 0.8;
-}
-
-.title::before {
-    left: -60px;
-    top: 50%;
-    animation-delay: 0s;
-}
-
-.title::after {
-    right: -60px;
-    top: 50%;
-    animation-delay: 3s;
-}
-
-@keyframes floatHearts {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.7;
-    }
-    50% {
-        transform: translateY(-10px) rotate(10deg);
-        opacity: 1;
-    }
-}
-
-/* Versión alternativa ultra esponjosa */
-.title-bubble {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 4.2em;
-    font-family: 'Fredoka One', 'Bubblegum Sans', 'Comic Sans MS', cursive;
-    font-weight: 400;
-    color: #ffffff;
-    text-align: center;
-    opacity: 0;
-    animation: fadeInTitle 3s ease-out 6s forwards, bounceGlow 4s ease-in-out infinite 9s;
-    
-    /* Efecto burbuja súper esponjoso */
-    background: linear-gradient(45deg, #ffffff, #ff1493, #ffffff, #ff69b4);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    
-    /* Sombras tipo burbuja */
-    text-shadow: 
-        0 0 20px rgba(255, 20, 147, 0.8),
-        0 0 40px rgba(255, 105, 180, 0.6),
-        0 0 60px rgba(255, 192, 203, 0.4),
-        4px 4px 0px #ffffff,
-        5px 5px 0px rgba(255, 20, 147, 0.3);
-    
-    /* Contorno esponjoso */
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
-    
-    /* Filtro de resplandor */
-    filter: drop-shadow(0px 0px 20px rgba(255, 20, 147, 0.6));
-}
-
-/* Animación de rebote suave para efecto burbuja */
-@keyframes bounceGlow {
-    0%, 100% {
-        transform: translateX(-50%) scale(1);
-        background-position: 0% 50%;
-    }
-    25% {
-        transform: translateX(-50%) scale(1.05);
-        background-position: 25% 25%;
-    }
-    50% {
-        transform: translateX(-50%) scale(1.02);
-        background-position: 100% 50%;
-    }
-    75% {
-        transform: translateX(-50%) scale(1.05);
-        background-position: 75% 75%;
-    }
-}
-
-/* Para dispositivos móviles */
-@media (max-width: 768px) {
-    .title,
-    .title-bubble {
-        font-size: 2.8em;
-        top: 20px;
-    }
-    
-    .title::before,
-    .title::after {
-        font-size: 0.3em; /* Corazones más pequeños en móviles */
-    }
-}     
-
+  
+  
         /* Botón de mensaje */
         .message-button {
             position: absolute;
@@ -704,14 +551,8 @@
             z-index: 6;
         }
 
-        .title {
-            left: 40%;
-        }
     }
 
-    .title {
-            left: 40%;
-        }
     </style>
 </head>
 <body>
